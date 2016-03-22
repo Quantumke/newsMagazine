@@ -10,7 +10,7 @@ from django.db.models import permalink
 
 # Create your models here
 
-class auth_login(models.Model):
+class auth_user(models.Model):
 	user= models.OneToOneField(User)
 	
 	def __unicode__(self):
