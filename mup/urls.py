@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^admin-site/', admin.site.urls),
     url(r'^reg_users/', views.register_user, name='register_user'),
     url(r'^login/$', views.login_user, name='login_user'),
-    url(r'^logout/$', views.logout_user, name='logout')
+    url(r'^logout/$', views.logout_user, name='logout'),
+    url(r'^new/', views.add_post, name='add_post'),
 
 ]
