@@ -18,7 +18,9 @@ from django.contrib import admin
 from publication import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^reg_users/', views.register_user, name='register_user')
+    url(r'^admin-site/', admin.site.urls),
+    url(r'^reg_users/', views.register_user, name='register_user'),
+    url(r'^login/$', views.login_user, name='login_user'),
+    url(r'^logout/$', views.logout_user, name='logout')
 
 ]
