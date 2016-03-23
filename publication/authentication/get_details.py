@@ -1,6 +1,5 @@
 class GetDetails():
 	def run (request_data,data):
-		print(request_data)
 		data['user_data']= GetDetails.get_data(request_data)
 
 	def get_data(request_data):
