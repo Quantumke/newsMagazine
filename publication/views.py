@@ -10,6 +10,9 @@ from .authentication import send_password_to_mail
 from .authentication import save_reg_transaction
 from .authentication import get_login_details
 from .authentication import authenticate_user
+from .posting import get_form_data
+from .posting import generate_extra_details
+from .posting import save_post
 
 # Create your views here.
 def register_user(request):
@@ -42,3 +45,17 @@ def logout_user(request):
 	logout(request)
 
 	return HttpResponseRedirect('/login/')
+
+def add_post(request):
+	context = RequestContext(request)
+	post_data=newadd(data=request.POST)
+	if request.method=='POST':
+		data ={}
+		get_form_data.GetFormData.run(request.POST, data)
+		generate_extra_details.GenerateExtraDetails.run(request,data)
+		save_post.SavePost.run(data)
+
+
+	return render(request, 'addpost.html', 
+		{'post_data':post_data}, context_instance=RequestContext(request))
+
