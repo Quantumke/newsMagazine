@@ -7,3 +7,9 @@ class authentication(forms.ModelForm):
 	class Meta:
 		model= User
 		fields =('username', 'password' , 'email', 'first_name', 'last_name')
+
+class newadd(forms.ModelForm):
+
+	class Meta:
+		model = news_posts
+		fields=('title', 'body', 'category')
