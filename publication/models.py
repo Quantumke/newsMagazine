@@ -23,3 +23,19 @@ class save_registration_transaction(DynamicDocument):
 	 firstname= fields.StringField(max_length=200, required=True)
 	 lastname= fields.StringField(max_length=200, required=True)
 
+class news_posts(models.Model):
+	title= models.CharField(max_length=200, unique=False)
+	body= models.CharField(max_length=1000, unique=False)
+	category= models.CharField(max_length=200, unique=True)
+	slug= models.SlugField(max_length=200, unique=True)
+	posted_by=models.CharField(max_length=200, unique=False)
+	posted_on=models.DateField(default=datetime.now, blank=False)
+
+	def __unicode__(self):
+		return '%s' %self.title
+
+	@permalink
+	def get_absolute_url(self):
+		return('view_more', None, self.slug)
+
+
