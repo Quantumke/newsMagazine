@@ -39,3 +39,10 @@ class news_posts(models.Model):
 		return('view_more', None, self.slug)
 
 
+class post_transaction(Document):
+	title = fields.StringField(max_length=100, unique=False)
+	body = fields.StringField(max_length=1000, unique=False)
+	category = fields.StringField(max_length=100, unique=True)
+	slug= fields.StringField(max_length=100, unique=True)
+	posted_by=fields.StringField(max_length=100, unique=False)
+	posted_on= fields.DateTimeField(default=datetime.now)
