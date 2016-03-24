@@ -65,3 +65,7 @@ def add_post(request):
 def view_post(request):
 	return render_to_response('index.html',{
 		'posts': news_posts.objects.all()})
+def view_more(request, slug):
+	return render_to_response('view-more.html', {
+		'posts':get_object_or_404(news_posts, slug=slug)
+		})
