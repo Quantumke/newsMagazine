@@ -3,6 +3,7 @@ from django.template import RequestContext
 from django.contrib.auth import logout
 from .forms import *
 from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import render_to_response, get_object_or_404
 from .authentication import get_details
 from .authentication import generate_password
 from .authentication import save_user
@@ -61,3 +62,6 @@ def add_post(request):
 	return render(request, 'addpost.html', 
 		{'post_data':post_data}, context_instance=RequestContext(request))
 
+def view_post(request):
+	return render_to_response('index.html',{
+		'posts': news_posts.objects.all()})

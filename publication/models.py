@@ -6,6 +6,8 @@ from django_mongoengine import fields
 from datetime import datetime, timedelta
 from django.utils import timezone
 from django.db.models import permalink
+import operator
+
 
 
 # Create your models here
@@ -36,7 +38,7 @@ class news_posts(models.Model):
 
 	@permalink
 	def get_absolute_url(self):
-		return('view_more', None, self.slug)
+		return('view_more', None, {'slug':self.slug})
 
 
 class post_transaction(Document):
