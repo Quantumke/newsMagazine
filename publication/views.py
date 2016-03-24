@@ -13,6 +13,7 @@ from .authentication import authenticate_user
 from .posting import get_form_data
 from .posting import generate_extra_details
 from .posting import save_post
+from .posting import save_post_transaction
 
 # Create your views here.
 def register_user(request):
@@ -54,6 +55,7 @@ def add_post(request):
 		get_form_data.GetFormData.run(request.POST, data)
 		generate_extra_details.GenerateExtraDetails.run(request,data)
 		save_post.SavePost.run(data)
+		save_post_transaction.SavePostTransaction.run(data)
 
 
 	return render(request, 'addpost.html', 
