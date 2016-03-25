@@ -25,5 +25,7 @@ urlpatterns = [
     url(r'^new/', views.add_post, name='add_post'),
     url(r'^(?P<slug>[^\.]+).html', views.view_more, name='view_more'),
     url(r'^$', views.view_post, name='home'),
+    url(r'^sub/', views.subscriptions, name='sub'),
+    
 
 ]
