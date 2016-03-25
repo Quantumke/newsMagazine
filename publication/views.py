@@ -69,3 +69,4 @@ def view_more(request, slug):
 	return render_to_response('view-more.html', {
 		'posts':get_object_or_404(news_posts, slug=slug)
 		})
+
