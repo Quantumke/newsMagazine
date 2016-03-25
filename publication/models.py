@@ -52,6 +52,11 @@ class post_transaction(Document):
 
 class subscribe(models.Model):
 	email=models.CharField(max_length=100, unique=True)
+	date=models.DateField(default=datetime.now, blank=False)
 
 	def __unicode__(self):
 		return '%s' %self.email
+
+class subscribe_event(Document):
+	email=fields.StringField(max_length=100, unique=True)
+	date= fields.DateTimeField(default=datetime.now)
