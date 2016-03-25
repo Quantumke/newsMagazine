@@ -17,5 +17,5 @@ class newadd(forms.ModelForm):
 class subscribes(forms.ModelForm):
 
 	class Meta:
-		model =subscribe
+		model = subscribe
 		fields =('email',)
