@@ -2,7 +2,7 @@ class GetEmails():
 
 	def run(request_data, data):
 	   data['sub_data']=GetEmails.get_sub_data(request_data)
-	   print(request_data)
+
 
 
 
