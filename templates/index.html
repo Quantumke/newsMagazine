@@ -6,8 +6,15 @@
             <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
         {% endfor %}
         </ul>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ subscribe_data }}
+    <input type="submit" value="Submit" />
+</form>
     {% else %}
         <p>There are no posts.</p>
     {% endif %}
+
+
 
 {% endblock %}
