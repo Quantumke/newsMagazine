@@ -15,6 +15,7 @@ from .posting import get_form_data
 from .posting import generate_extra_details
 from .posting import save_post
 from .posting import save_post_transaction
+from .subscriptions import get_emails
 
 # Create your views here.
 def register_user(request):
@@ -69,4 +70,13 @@ def view_more(request, slug):
 	return render_to_response('view-more.html', {
 		'posts':get_object_or_404(news_posts, slug=slug)
 		})
+def subscriptions(request):
+	context = RequestContext(request)
+	subscribe_data=subscribes(request.POST)
+	if request.method=='POST':
+		data={}
+		get_emails.GetEmails.run(request, data)
 
+	return render(request, 'index.html',{'subscribe':subscribes}, context_istance=RequestContext(request))
+		
+		
