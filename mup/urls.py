@@ -26,6 +26,8 @@ urlpatterns = [
     url(r'^(?P<slug>[^\.]+).html', views.view_more, name='view_more'),
     url(r'^$', views.view_post, name='home'),
     url(r'^sub/', views.subscriptions, name='sub'),
+    url(r'^contact/', views.contact, name='contact'),
+
     
 
 ]
