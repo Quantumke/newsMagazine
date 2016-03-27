@@ -19,3 +19,8 @@ class subscribes(forms.ModelForm):
 	class Meta:
 		model = subscribe
 		fields =('email',)
+class contactus(forms.ModelForm):
+
+	class Meta:
+		model=contact_us
+		fields=('name', 'email', 'message',)
