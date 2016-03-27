@@ -60,3 +60,18 @@ class subscribe(models.Model):
 class subscribe_event(Document):
 	email=fields.StringField(max_length=100, unique=True)
 	date= fields.DateTimeField(default=datetime.now)
+
+class contact_us(models.Model):
+	name = models.CharField(max_length=100, unique=False)
+	email = models.CharField(max_length=100, unique=False)
+	message= models.CharField(max_length=100, unique=False)
+	date = models.DateField(default=datetime.now, blank=False)
+
+	def __unicode__(self):
+		return '%s'%self.name
+
+class contact_event(Document):
+	name= fields.StringField(max_length=100, unique=False)
+	email = fields.StringField(max_length=100, unique=False)
+	message=fields.StringField(max_length=100, unique=False)
+	date= fields.DateTimeField(default= datetime.now, )
