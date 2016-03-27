@@ -18,7 +18,9 @@ from .posting import save_post_transaction
 from .subscriptions import get_emails
 from .subscriptions import  save_sub
 from .subscriptions import save_sub_event
-
+from .contactus import get_contact_details
+from .contactus import save_contact
+from .contactus import save_contact_event
 # Create your views here.
 def register_user(request):
 	context = RequestContext(request)
@@ -85,4 +87,18 @@ def subscriptions(request):
 
 		return render(request, 'subscription.html',
 					  {'sub': sub}, context_instance=RequestContext(request))
+
+def contact(request):
+		context = RequestContext(request)
+		contact_form = contactus(data=request.POST)
+		if request.method == 'POST':
+			data = {}
+			get_contact_details.GetContactDetails.run(request.POST, data)
+			save_contact.SaveContact.run(data)
+			save_contact_event.SaveContactEvent.run(data)
+
+
+
+		return render(request, 'contact.html',
+					  {'contact_form': contact_form}, context_instance=RequestContext(request))
 
