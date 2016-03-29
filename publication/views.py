@@ -21,7 +21,10 @@ from .subscriptions import save_sub_event
 from .contactus import get_contact_details
 from .contactus import save_contact
 from .contactus import save_contact_event
+from .updates import get_update_data
+from .updates import  save_update
 # Create your views here.
+
 def register_user(request):
 	context = RequestContext(request)
 	registered = False
@@ -101,4 +104,28 @@ def contact(request):
 
 		return render(request, 'contact.html',
 					  {'contact_form': contact_form}, context_instance=RequestContext(request))
+
+
+def update_post(request, id):
+		if id:
+			instance =news_posts.objects.get(id=id)
+			update_data = newadd(request.POST or None, instance=instance)
+			if update_data.is_valid():
+				data = {}
+				get_update_data.GetUpdateData.run(request, data)
+				save_update.SaveUpdate.run(data, id)
+
+
+				return HttpResponseRedirect('/login/')
+			context = {
+				"title": instance.title,
+				"instance": instance,
+				"update_data":update_data,
+
+			}
+
+
+
+
+		return render(request, 'update.html',context)
 
