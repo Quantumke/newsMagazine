@@ -75,3 +75,10 @@ class contact_event(Document):
 	email = fields.StringField(max_length=100, unique=False)
 	message=fields.StringField(max_length=100, unique=False)
 	date= fields.DateTimeField(default= datetime.now, )
+
+
+class post_update_event(Document):
+	title= fields.StringField(max_length=100, unique=False)
+	body = fields.StringField(max_length=1000 , unique=False)
+	category=fields.StringField(max_length=100, unique=False)
+	date=fields.DateTimeField(default=datetime.now)
