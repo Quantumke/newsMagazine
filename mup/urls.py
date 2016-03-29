@@ -27,6 +27,8 @@ urlpatterns = [
     url(r'^$', views.view_post, name='home'),
     url(r'^sub/', views.subscriptions, name='sub'),
     url(r'^contact/', views.contact, name='contact'),
+    url(r'^update_posts/(?P<id>\d+)/$', views.update_post, name="update_post"),
+    url(r'^update/$', views.update_post, name='update_post'),
 
     
 
