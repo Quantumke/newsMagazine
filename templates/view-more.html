@@ -4,8 +4,15 @@
 {% block head_title %}
 
 {{ posts.title }}{% endblock %}
-{% block title %}{{ posts.title }}{% endblock %}
+{% block title %}
+
+    {{ posts.title }}
+
+{% endblock %}
 
 {% block content %}
     {{ posts.body }}
+
+    <td><a href='/update_posts/{{posts.id}}'>View More</a>
+
 {% endblock %}
