@@ -1,1 +1,1 @@
-# newsMagazine
+# newsMagazin
