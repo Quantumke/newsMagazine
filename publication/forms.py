@@ -18,4 +18,4 @@ class subscribes(forms.ModelForm):
 
 	class Meta:
 		model =subscribe
-		fields =('email')
+		fields =('email',)
