@@ -143,7 +143,6 @@ INSTALLED_APPS = (
     'django_mongoengine.mongo_auth',
     'django_mongoengine.mongo_admin.sites',
     'django_mongoengine.mongo_admin',
-     'bootstrap3',
      
     'publication'
 )

@@ -13,3 +13,9 @@ class newadd(forms.ModelForm):
 	class Meta:
 		model = news_posts
 		fields=('title', 'body', 'category')
+
+class subscribes(forms.ModelForm):
+
+	class Meta:
+		model =subscribe
+		fields =('email')

@@ -48,3 +48,10 @@ class post_transaction(Document):
 	slug= fields.StringField(max_length=100, unique=True)
 	posted_by=fields.StringField(max_length=100, unique=False)
 	posted_on= fields.DateTimeField(default=datetime.now)
+
+
+class subscribe(models.Model):
+	email=models.CharField(max_length=100, unique=True)
+
+	def __unicode__(self):
+		return '%s' %self.email
