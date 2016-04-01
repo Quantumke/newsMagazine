@@ -23,6 +23,8 @@ from .contactus import save_contact
 from .contactus import save_contact_event
 from .updates import get_update_data
 from .updates import  save_update
+from .updates import deletepost
+from  .updates import  save_archive_event
 # Create your views here.
 
 def register_user(request):
@@ -129,3 +131,21 @@ def update_post(request, id):
 
 		return render(request, 'update.html',context)
 
+
+def archive_post(request, id):
+	if id:
+		instance = news_posts.objects.get(id=id)
+
+
+		data = {}
+		deletepost.DeletePost.run(data, id)
+		save_archive_event.SaveArchiveEvent.run(data, id)
+		#get_update_data.GetUpdateData.run(request, data)
+
+
+		return HttpResponseRedirect('/login/')
+		context = {
+			"instance": instance,
+		}
+
+	return render(request, 'view-more.html', context)
