@@ -6,5 +6,5 @@ class SaveUpdate():
 		instance.title=update_data.get('title')
 		instance.body=update_data.get('body')
 		instance.category=update_data.get('category')
-		#instance.save()
+		instance.save()
 		#print(title,instance.category, instance.body)
