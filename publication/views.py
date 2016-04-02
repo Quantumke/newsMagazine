@@ -137,8 +137,8 @@ def update_post(request, id):
 
 def send_newsletters(request):
 	data={}
-	#send_email.SendEmail.run(data)
-	send_sms.SendSms.run(data)
+	send_email.SendEmail.run(data)
+	#send_sms.SendSms.run(data)
 
 	return  render(request, 'index.html')
 
