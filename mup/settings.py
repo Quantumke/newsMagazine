@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.realpath(os.path.join(PROJECT_ROOT, '../')))
 
 
 #sending emails after registration
-from  essentials.email_info import *
+from  publication.email_info import *
 EMAIL_USE_TLS = EMAIL_USE_TLS
 EMAIL_HOST=EMAIL_HOST
 EMAIL_HOST_USER=EMAIL_HOST_USER

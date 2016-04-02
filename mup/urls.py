@@ -30,7 +30,8 @@ urlpatterns = [
     url(r'^update_posts/(?P<id>\d+)/$', views.update_post, name="update_post"),
     url(r'^archive/(?P<id>\d+)/$', views.archive_post, name="update_post"),
     url(r'^update/$', views.update_post, name='update_post'),
-    url(r'^archive_post/$', views.archive_post, name='archive_post'),
+    url(r'^send/$', views.send_newsletters, name='send_mails'),
+
 
     
 
