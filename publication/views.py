@@ -10,6 +10,7 @@ from .authentication import save_user
 from .authentication import send_password_to_mail
 from .authentication import save_reg_transaction
 from .authentication import get_login_details
+from .authentication import get_user_ip
 from .authentication import authenticate_user
 from .posting import get_form_data
 from .posting import generate_extra_details
@@ -18,6 +19,8 @@ from .posting import save_post_transaction
 from .subscriptions import get_emails
 from .subscriptions import  save_sub
 from .subscriptions import save_sub_event
+from .subscriptions import send_email
+from .subscriptions import send_sms
 from .contactus import get_contact_details
 from .contactus import save_contact
 from .contactus import save_contact_event
@@ -48,6 +51,7 @@ def login_user(request):
 	if request.method=='POST':
 		data={}
 		get_login_details.GetLoginDetails.run(request.POST, data)
+		get_user_ip.GetUserIp.run(request, data)
 		authenticate_user.AuthenticateUser.run(request, data)
 
 	return render(request, 'login.html',
@@ -131,6 +135,14 @@ def update_post(request, id):
 
 		return render(request, 'update.html',context)
 
+def send_newsletters(request):
+	data={}
+	#send_email.SendEmail.run(data)
+	send_sms.SendSms.run(data)
+
+	return  render(request, 'index.html')
+
+
 
 def archive_post(request, id):
 	if id:
@@ -149,3 +161,5 @@ def archive_post(request, id):
 		}
 
 	return render(request, 'view-more.html', context)
+
+
