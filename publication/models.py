@@ -24,6 +24,11 @@ class save_registration_transaction(DynamicDocument):
 	 password= fields.StringField(max_length=200, required=True)
 	 firstname= fields.StringField(max_length=200, required=True)
 	 lastname= fields.StringField(max_length=200, required=True)
+class save_user_ip(models.Model):
+	ip=models.GenericIPAddressField(protocol='both', unpack_ipv4=False)
+	date=models.DateField(default=datetime.now, blank=False)
+
+
 
 class news_posts(models.Model):
 	title= models.CharField(max_length=200, unique=False)
