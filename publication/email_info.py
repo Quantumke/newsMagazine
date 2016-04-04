@@ -1,6 +1,6 @@
 #--------------------------------------------------------------------------------------------------------------------python send email()
 EMAIL_USE_TLS = True
-EMAIL_HOST="smtp.sendgrid.net"
-EMAIL_HOST_USER="adlink_mail"
+EMAIL_HOST=""
+EMAIL_HOST_USER=""
 EMAIL_PORT= 587
-EMAIL_HOST_PASSWORD="vSYBBDXHJBPxKr4"
+EMAIL_HOST_PASSWORD=""
