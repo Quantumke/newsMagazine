@@ -12,6 +12,9 @@ from .authentication import save_reg_transaction
 from .authentication import get_login_details
 from .authentication import get_user_ip
 from .authentication import authenticate_user
+from .authentication import get_forgot_email
+from  .authentication import package_info
+from .authentication import send_password
 from .posting import get_form_data
 from .posting import generate_extra_details
 from .posting import save_post
@@ -162,4 +165,18 @@ def archive_post(request, id):
 
 	return render(request, 'view-more.html', context)
 
+
+def forgot_password(request):
+		context = RequestContext(request)
+		forgotpass = resetpassword(data=request.POST)
+		if request.method == 'POST':
+			data = {}
+			get_forgot_email.GetForgotEmail.run(request.POST, data)
+			send_password.SendPassword.run(data)
+			package_info.PackageInfo.run(data)
+
+
+
+		return render(request, 'reset_password.html',
+					  {'forgotpass': forgotpass}, context_instance=RequestContext(request))
 
