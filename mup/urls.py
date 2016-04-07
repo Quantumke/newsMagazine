@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^archive/(?P<id>\d+)/$', views.archive_post, name="update_post"),
     url(r'^update/$', views.update_post, name='update_post'),
     url(r'^send/$', views.send_newsletters, name='send_mails'),
+    url(r'^resetpassword/$', views.forgot_password, name='forgot_password'),
 
 
     

@@ -24,3 +24,9 @@ class contactus(forms.ModelForm):
 	class Meta:
 		model=contact_us
 		fields=('name', 'email', 'message',)
+
+class resetpassword(forms.ModelForm):
+
+	class Meta:
+		model=forgotpassword
+		fields=('email',)
