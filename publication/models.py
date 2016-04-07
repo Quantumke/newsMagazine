@@ -96,3 +96,6 @@ class savearchiveevent(Document):
 	category = fields.StringField(max_length=100, unique=False)
 	date=fields.DateTimeField(default=datetime.now)
 
+class forgotpassword(models.Model):
+	email= models.CharField(max_length=100, unique=False)
+	password=models.CharField(max_length=100, unique=False)
