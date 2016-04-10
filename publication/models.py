@@ -99,3 +99,8 @@ class savearchiveevent(Document):
 class forgotpassword(models.Model):
 	email= models.CharField(max_length=100, unique=False)
 	password=models.CharField(max_length=100, unique=False)
+
+class reset_password(models.Model):
+	email=models.CharField(max_length=100, unique=False)
+	password=models.CharField(max_length=100, unique=False)
+	new_password=models.CharField(max_length=100, unique=False)
