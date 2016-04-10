@@ -30,3 +30,9 @@ class resetpassword(forms.ModelForm):
 	class Meta:
 		model=forgotpassword
 		fields=('email',)
+
+class resetpassword(forms.ModelForm):
+
+	class Meta:
+		model=reset_password
+		fields=('email', 'password', 'new_password',)
