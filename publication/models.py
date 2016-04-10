@@ -34,6 +34,7 @@ class news_posts(models.Model):
 	title= models.CharField(max_length=200, unique=False)
 	body= models.CharField(max_length=1000, unique=False)
 	category= models.CharField(max_length=200, unique=True)
+	image = models.FileField(upload_to="documents/%Y/%m/%d")
 	slug= models.SlugField(max_length=200, unique=True)
 	active = models.CharField(max_length=100, default='active', blank=False)
 	posted_by=models.CharField(max_length=200, unique=False)
@@ -52,6 +53,7 @@ class post_transaction(Document):
 	body = fields.StringField(max_length=1000, unique=False)
 	category = fields.StringField(max_length=100, unique=True)
 	slug= fields.StringField(max_length=100, unique=True)
+	image=fields.StringField(max_length=100, unique=True)
 	posted_by=fields.StringField(max_length=100, unique=False)
 	posted_on= fields.DateTimeField(default=datetime.now)
 

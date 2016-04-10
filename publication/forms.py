@@ -12,7 +12,7 @@ class newadd(forms.ModelForm):
 
 	class Meta:
 		model = news_posts
-		fields=('title', 'body', 'category')
+		fields=('title', 'body', 'category', 'image',)
 
 class subscribes(forms.ModelForm):
 
