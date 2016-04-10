@@ -15,6 +15,9 @@ from .authentication import authenticate_user
 from .authentication import get_forgot_email
 from  .authentication import package_info
 from .authentication import send_password
+from .authentication import get_change_pass
+from .authentication import auth_change_pass
+from .authentication import send_new_pass
 from .posting import get_form_data
 from .posting import generate_extra_details
 from .posting import save_post
@@ -180,3 +183,17 @@ def forgot_password(request):
 		return render(request, 'reset_password.html',
 					  {'forgotpass': forgotpass}, context_instance=RequestContext(request))
 
+def reset_password(request):
+		context = RequestContext(request)
+		resetpass = resetpassword(data=request.POST)
+		if request.method == 'POST':
+			data = {}
+			get_change_pass.GetChangePass.run(request.POST, data)
+			auth_change_pass.AuthChangePass.run(data)
+			send_new_pass.SendNewPass.run(data)
+
+
+
+
+		return render(request, 'change_password.html',
+					  {'resetpass': resetpass}, context_instance=RequestContext(request))
