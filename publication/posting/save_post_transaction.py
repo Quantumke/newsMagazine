@@ -8,8 +8,9 @@ class SavePostTransaction():
 		body = post_data.get('body')
 		category=post_data.get('category')
 		slug_data=slug.get('slug_data')
+		image=post_data.get('image')
 		print(title, body, category, slug_data)
-		e = post_transaction(title=title, body=body, category=category, slug=slug_data, posted_by='ben')
+		e = post_transaction(title=title, body=body, category=category, slug=slug_data, posted_by='ben', image=image)
 		e.save()
 		data['postdata']=postdata
 
