@@ -70,16 +70,16 @@ def logout_user(request):
 
 def add_post(request):
 	context = RequestContext(request)
-	post_data=newadd(data=request.POST)
+	post_data=newadd(request.POST,request.FILES)
 	if request.method=='POST':
 		data ={}
-		get_form_data.GetFormData.run(request.POST, data)
+		get_form_data.GetFormData.run(request.POST, request.FILES, data)
 		generate_extra_details.GenerateExtraDetails.run(request,data)
 		save_post.SavePost.run(data)
-		save_post_transaction.SavePostTransaction.run(data)
+		#save_post_transaction.SavePostTransaction.run(data)
 
 
-	return render(request, 'addpost.html', 
+	return render(request, 'post.html',
 		{'post_data':post_data}, context_instance=RequestContext(request))
 
 def view_post(request):
