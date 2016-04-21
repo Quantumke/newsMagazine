@@ -49,7 +49,7 @@ def register_user(request):
 		save_reg_transaction.SaveRegTransaction.run(data)
 
 	return render(request,
-		'register.html', {'user_details':user_details, 'registered':registered
+		'official/register.html', {'user_details':user_details, 'registered':registered
 		}, context_instance=RequestContext(request))
 
 def login_user(request):
@@ -60,7 +60,7 @@ def login_user(request):
 		get_user_ip.GetUserIp.run(request, data)
 		authenticate_user.AuthenticateUser.run(request, data)
 
-	return render(request, 'login.html',
+	return render(request, 'official/login.html',
 		{}, context_instance=RequestContext(request))
 
 def logout_user(request):
@@ -79,11 +79,11 @@ def add_post(request):
 		#save_post_transaction.SavePostTransaction.run(data)
 
 
-	return render(request, 'post.html',
+	return render(request, 'official/post.html',
 		{'post_data':post_data}, context_instance=RequestContext(request))
 
 def view_post(request):
-	return render_to_response('index.html',{
+	return render_to_response('official/displayads.html',{
 		'posts': news_posts.objects.all()})
 def view_more(request, slug):
 	return render_to_response('view-more.html', {
